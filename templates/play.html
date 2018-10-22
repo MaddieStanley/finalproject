@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    <!-- app's own JavaScript -->
+    <script src="/static/scripts.js"></script>
+{% endblock %}
+
+{% block title %}
+    Play
+{% endblock %}
+
+{% block main %}
+    <script type="text/javascript">
+        var method = '{{method}}';
+        var wordLength = '{{wordLength}}';
+        var wordNumber = '{{wordNumber}}';
+        var category = '{{category}}';
+
+        var words = '{{words|tojson}}';
+
+    </script>
+    <div class="container-fluid" id="headInfo">
+        <h4 class='font-weight-bold'><a href='#' style='color:DeepPink' data-toggle='modal' data-target='#wordModal' id='hint'>hint</a></h4>
+    </div>
+    <div class="container-fluid" id="playScreen"></div>
+
+    <div class="modal fade" id="wordModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel">Word</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-definition">Definition</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

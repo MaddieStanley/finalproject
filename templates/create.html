@@ -1,0 +1,128 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Create
+{% endblock %}
+
+{%block head%}
+    <script>
+    $(document).ready(function() {
+        $('select[name="wordNumber"]').click(function(){
+            var selectedVal=$(this).val();
+            switch(selectedVal){
+                case '4':
+                    console.log("4");
+                    $('.form6').hide();
+                    document.getElementById("6").required = false;
+                    $('.form5').hide();
+                    document.getElementById("5").required = false;
+                    $('.form4').show();
+                    document.getElementById("4").required = true;
+                    break;
+                case '5':
+                    console.log("5");
+                    $('.form6').hide();
+                    document.getElementById("6").required = false;
+                    $('.form4').show();
+                    document.getElementById("4").required = true;
+                    $('.form5').show();
+                    document.getElementById("5").required = true;
+                    break;
+                case '6':
+                    console.log("6");
+                    $('.form4').show();
+                    document.getElementById("4").required = true;
+                    $('.form5').show();
+                    document.getElementById("5").required = true;
+                    $('.form6').show();
+                    document.getElementById("6").required = true;
+                    break;
+                default: //change this according to your need
+                    console.log("3");
+                    $('.form6').hide();
+                    document.getElementById("6").required = false;
+                    $('.form5').hide();
+                    document.getElementById("5").required = false;
+                    $('.form4').hide();
+                    document.getElementById("4").required = false;
+                    break;
+            }
+        });
+    });
+    </script>
+{% endblock %}
+
+{% block main %}
+    <form action="/create" method="post" id="formMain" class="needs-validation" novalidate>
+        <div class="form-group">
+            <label for="wordNumber">Number of Words</label>
+            <select class="form-control custom-select" name="wordNumber" aria-describedby="wordNumberInfo">
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+            </select>
+        </div>
+        <p>Words must be between 4 and 7 letters long</p>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="word1" placeholder="Type word here" type="text" required/>
+            <div class="invalid-feedback">
+                Please provide a word.
+            </div>
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" class="form-control" name="word2" placeholder="Type word here" type="text" required/>
+            <div class="invalid-feedback">
+                Please provide a word.
+            </div>
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" class="form-control" name="word3" placeholder="Type word here" type="text"required/>
+            <div class="invalid-feedback">
+                Please provide a word.
+            </div>
+        </div>
+        <div class="form-group form4">
+            <input autocomplete="off" class="form-control" name="word4" id="4" placeholder="Type word here" type="text"/>
+            <div class="invalid-feedback">
+                Please provide a word.
+            </div>
+        </div>
+        <div class="form-group form5">
+            <input autocomplete="off" class="form-control" name="word5" id="5" placeholder="Type word here" type="text"/>
+            <div class="invalid-feedback">
+                Please provide a word.
+            </div>
+        </div>
+        <div class="form-group form6">
+            <input autocomplete="off" class="form-control" name="word6" id="6" placeholder="Type word here" type="text"/>
+            <div class="invalid-feedback">
+                Please provide a word.
+            </div>
+        </div>
+        <button class="btn btn-dark" type="submit">Create</button>
+    </form>
+
+    <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+    </script>
+{% endblock %}
+

@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Play
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <table class="table" id = "gameTable">
+            <tbody>
+                <tr>
+                    {% for array in formattedColumns %}
+                        <td>
+                            <table class="table">
+                                {% for character in array %}
+                                    <tr>
+                                        <td>
+                                            {{character}}
+                                        </td>
+                                    </tr>
+                                {%endfor%}
+                            </table>
+                            <div class="btn-group-vertical" role="group" aria-label="Directions">
+                                <button type="button" id="up{{loop.index}}" class="btn btn-dark btn-primary" onclick=buttonPress(this.id);>&#x2B9D;</button>
+                                <button type="button" id="down{{loop.index}}" class="btn btn-dark btn-primary" onclick=buttonPress(this.id);>&#x2B9F;</button>
+                            </div>
+                        </td>
+                    {%endfor%}
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

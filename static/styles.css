@@ -1,0 +1,64 @@
+nav .navbar-brand
+{
+    /* size for brand */
+    font-size: xx-large;
+}
+
+/* colors for brand */
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+nav .navbar-brand .pink
+{
+    color: 	DeepPink;
+}
+
+main .form-control
+{
+    /* center form controls */
+    display: inline-block;
+
+    /* override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+
+main .form-control:focus
+{
+    border-color: #FF1493;
+    -webkit-box-shadow: #FF1493;
+    -moz-box-shadow: #FF1493;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(255, 20, 147, 0.75);
+
+}
+
+main
+{
+    /* scroll horizontally as needed */
+    overflow-x: auto;
+
+    /* center contents */
+    text-align: center;
+}
+
+main img
+{
+    /* constrain images on small screens */
+    max-width: 100%;
+}
+
+.borderless td, .borderless th {
+    border: none;
+}
+
+.form4 {
+    display:none;
+}
+
+.form5 {
+    display:none;
+}
+
+.form6 {
+    display:none;
+}
